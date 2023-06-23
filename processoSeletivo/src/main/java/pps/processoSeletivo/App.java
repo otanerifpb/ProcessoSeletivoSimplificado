@@ -9,6 +9,7 @@ import model.Candidato;
 import model.DesenpenhoState;
 import model.EnsinoState;
 import model.FinalizadoState;
+import model.GestaoState;
 import model.State;
 import model.TituloState;
 
@@ -28,6 +29,10 @@ public class App
     	
     	/*Var para definir quantidades de vagas do PSS do IFPB*/
     	int vagasDisponivel = 4;
+    	System.out.println("*************************************************");
+    	System.out.println("Processo Seletivo Simplificado IFPB 145-2022");
+    	System.out.println("          Com " + vagasDisponivel + " vagas disponíveis");
+    	System.out.println("*************************************************");
     	
     	/*Var para definir a respostas classificação da Prova de Títulos*/
     	int resposta = 0;
@@ -39,7 +44,7 @@ public class App
     	Candidato c3 = new Candidato("Glaucio", 3456);
     	Candidato c4 = new Candidato("Fabrycio", 4567);
     	Candidato c5 = new Candidato("Rivania", 5678);
-    	Candidato c6 = new Candidato("Rhyanna", 6789);
+    	Candidato c6 = new Candidato("Junio", 6789);
     	Candidato c7 = new Candidato("Cristina", 7891);
     	Candidato c8 = new Candidato("Jussara", 8912);
     	
@@ -136,31 +141,35 @@ public class App
     public static void andamentoCandidatura(Candidato candidato, int resposta) 
 			throws NumberFormatException, IOException {
     	
-    	/*Primeira fase de classificação do Candidato, critério Eliminatório*/
+    	/*Primeira fase de classificação do Candidato, Prova de Desenpenho*/
     	State desenpenho = new DesenpenhoState(candidato);
     	desenpenho.processando();
 		System.out.println(desenpenho.clasificacao());
 		
-		/*Segunda fase de classificação do Candidato, Etapa 1*/
+		/*Segunda fase de classificação do Candidato, Etapa 1, Prova de Título*/
 		 if (candidato.isProcess()){
     	State titulo = new TituloState(candidato);
-    	//titulo.processando();
 		System.out.println(titulo.clasificacao());
 		 }
 		 
-		/*Segunda fase de classificação do Candidato, Etapa 1*/
+		/*Segunda fase de classificação do Candidato, Etapa 2, Prova de Ensino*/
 		 if (candidato.isProcess()){
     	State ensino = new EnsinoState(candidato);
-    	//ensino.processando();
 		System.out.println(ensino.clasificacao());
+		 }
+		 
+		 /*Segunda fase de classificação do Candidato, Etapa 3, Prova de Gestão*/
+		 if (candidato.isProcess()){
+    	State gestao = new GestaoState(candidato);
+		System.out.println(gestao.clasificacao());
 		 }
     }
     
     /*Método para finalizar o processo do Candidato no PSS*/
-    public static void finalizarCandidatura(Candidato candidato) throws NumberFormatException, IOException {
+    public static void finalizarCandidatura(Candidato candidato) 
+    		throws NumberFormatException, IOException {
 		
     	State finalizado = new FinalizadoState(candidato);
-		finalizado.clasificacao();
 		System.out.println(finalizado.clasificacao());
 	}
 }
