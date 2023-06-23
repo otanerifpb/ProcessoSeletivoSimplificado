@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 //import java.util.Random;
 
 public class TituloState extends State {
+	static int resposta;
 
 	public TituloState(Candidato candidato) {
 		super(candidato);
@@ -15,7 +16,14 @@ public class TituloState extends State {
 	public String clasificacao() throws NumberFormatException, IOException  {
 		
 		if (candidato.isProcess()) {
-			int titulo = tituloCandidato();
+			
+			/*Validação da resposta do Candidato*/
+			resposta = tituloCandidato();
+			while (resposta != 0 && resposta != 1 && resposta != 2 && resposta != 3) {
+				resposta = tituloCandidato();
+			}
+			
+			int titulo = resposta;
 			if (titulo == 1) {
 				//candidato.setStatus("Classificado");
 				candidato.setNota(candidato.getNota() + 25);
@@ -33,7 +41,7 @@ public class TituloState extends State {
 				return "     Candidato elegível para Prova de Ensino";
 			}else {
 				//candidato.setStatus("Não Classificado");
-				candidato.setNota(candidato.getNota() + 0);
+				//candidato.setNota(candidato.getNota() + 0);
 				candidato.changeState(new EnsinoState(candidato));
 				return "     Candidato elegido para Prova de Ensino"; 			
 			}
@@ -52,17 +60,16 @@ public class TituloState extends State {
 //	}
 	
 	/*Entrada da Titulação do Candidatos para Prova de Título*/
-	public static int tituloCandidato() throws NumberFormatException, IOException  {
-		int resposta = 0;
+	public static int tituloCandidato() throws NumberFormatException, IOException  {	
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("     Informe: NENHUM (0); Doutor (1); Mestre (2); Especialista (3)");
+		resposta = Integer.parseInt(br.readLine());
 		if (resposta != 0 && resposta != 1 && resposta != 2 && resposta != 3) {
 			System.out.println("     Resposta Inválida!!");
 			System.out.println("     Informe um Valor Dentro do Intervalo Indicado!");
 		}else {
 			System.out.println("     Informar a Titulação Acadêmica do Candidato");
 		}
-		System.out.println("     Informe: 0 - NENHUM; 1 - Doutor; 2 - Mestre; 3 - Especialista");
-		resposta = Integer.parseInt(br.readLine());
 		return resposta;
 	}
 
