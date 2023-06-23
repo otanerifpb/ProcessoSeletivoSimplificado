@@ -37,7 +37,7 @@ public class EnsinoState extends State {
 				candidato.changeState(new GestaoState(candidato));
 				return "     Candidato elegível para Prova de Gestão";
 			}else {
-				//candidato.setStatus("Classificado");
+				//candidato.setStatus("Não Classificado");
 				//candidato.setNota(candidato.getNota() + 0);
 				candidato.changeState(new GestaoState(candidato));
 				return "     Candidato elegível para Prova de Gestão";			
