@@ -7,6 +7,7 @@ import java.util.Comparator;
 
 import model.Candidato;
 import model.DesenpenhoState;
+import model.EnsinoState;
 import model.FinalizadoState;
 import model.State;
 import model.TituloState;
@@ -145,6 +146,13 @@ public class App
     	State titulo = new TituloState(candidato);
     	//titulo.processando();
 		System.out.println(titulo.clasificacao());
+		 }
+		 
+		/*Segunda fase de classificação do Candidato, Etapa 1*/
+		 if (candidato.isProcess()){
+    	State ensino = new EnsinoState(candidato);
+    	//ensino.processando();
+		System.out.println(ensino.clasificacao());
 		 }
     }
     
