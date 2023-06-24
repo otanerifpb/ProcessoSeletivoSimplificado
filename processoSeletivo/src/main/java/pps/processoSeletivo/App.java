@@ -28,7 +28,7 @@ public class App
     public static void main( String[] args ) throws NumberFormatException, IOException {
     	
     	/*Var para definir quantidades de vagas do PSS do IFPB*/
-    	int vagasDisponivel = 4;
+    	int vagasDisponivel = 2;
     	System.out.println("*************************************************");
     	System.out.println("Processo Seletivo Simplificado IFPB 145-2022");
     	System.out.println("          Com " + vagasDisponivel + " vagas disponíveis");
@@ -53,10 +53,10 @@ public class App
     	candidatos.add(c2);
     	candidatos.add(c3);
     	candidatos.add(c4);
-    	candidatos.add(c5);
-    	candidatos.add(c6);
-    	candidatos.add(c7);
-    	candidatos.add(c8);
+    	//candidatos.add(c5);
+    	//candidatos.add(c6);
+    	//candidatos.add(c7);
+    	//candidatos.add(c8);
     	
     	/*Avaliação de cada Candidato nas fases do PSS*/
     	for (Candidato candidato: candidatos) {
