@@ -62,13 +62,12 @@ public class TituloState extends State {
 	/*Entrada da Titulação do Candidatos para Prova de Título*/
 	public static int tituloCandidato() throws NumberFormatException, IOException  {	
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("     Informe: NENHUM (0); Doutor (1); Mestre (2); Especialista (3)");
+		System.out.println("     Informar a Titulação Acadêmica do Candidato");
+		System.out.println("     Informe: Sem Título(0); Doutor(1); Mestre(2); Especialista(3)");
 		resposta = Integer.parseInt(br.readLine());
 		if (resposta != 0 && resposta != 1 && resposta != 2 && resposta != 3) {
 			System.out.println("     Resposta Inválida!!");
 			System.out.println("     Informe um Valor Dentro do Intervalo Indicado!");
-		}else {
-			System.out.println("     Informar a Titulação Acadêmica do Candidato");
 		}
 		return resposta;
 	}
