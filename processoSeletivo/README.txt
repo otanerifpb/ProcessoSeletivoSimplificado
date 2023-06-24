@@ -56,11 +56,14 @@ Padrão utilizado foi o State
 # Passo 04 - Lista Candidatos Classifivado e Aprovados
 	Pegamos a lista Candidatos[] Aprovados e criamos uma nova lista listaAprovado[]
 	Onde adicionamos apenas os Candidatos com Status igual "Aprovado"
-	Ordenamos esta nova lista em ordem Decrescente
+	Ordenamos esta nova lista em ordem Decrescente pela Nota
 	De acordo com as vagas disponíveis(4) mudamos o setStatus para "Classificado", os demais permanecem com Status inalterados
 	Depois pedimos para imprimir a Lista dos Classificados e Aprovados
 
 # Passo 05 - Lista Candidatos Desclassificados
+	Pegamos a lista Candidatos[]
+	Ordenamos a lista em ordem Crescente pelo Nome
+	Depois pedimos para imprimir apenas os Candidatos Eliminados
 
 
 
