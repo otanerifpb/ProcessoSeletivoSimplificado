@@ -25,22 +25,22 @@ public class TituloState extends State {
 			
 			int titulo = resposta;
 			if (titulo == 1) {
-				//candidato.setStatus("Classificado");
+				//candidato.setStatus("Aprovado");
 				candidato.setNota(candidato.getNota() + 25);
 				candidato.changeState(new EnsinoState(candidato));
 				return "     Candidato elegível para Prova de Ensino";
 			} else if (titulo == 2){
-				//candidato.setStatus("Classificado");
+				//candidato.setStatus("Aprovado");
 				candidato.setNota(candidato.getNota() + 18);
 				candidato.changeState(new EnsinoState(candidato));
 				return "     Candidato elegível para Prova de Ensino";
 			}else if (titulo == 3){
-				//candidato.setStatus("Classificado");
+				//candidato.setStatus("Aprovado");
 				candidato.setNota(candidato.getNota() + 10);
 				candidato.changeState(new EnsinoState(candidato));
 				return "     Candidato elegível para Prova de Ensino";
 			}else {
-				//candidato.setStatus("Não Classificado");
+				//candidato.setStatus("Eliminado");
 				//candidato.setNota(candidato.getNota() + 0);
 				candidato.changeState(new EnsinoState(candidato));
 				return "     Candidato elegido para Prova de Ensino"; 			
