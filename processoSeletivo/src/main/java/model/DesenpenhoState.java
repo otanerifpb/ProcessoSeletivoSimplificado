@@ -13,16 +13,16 @@ public class DesenpenhoState extends State{
 		if (candidato.isProcess()) {
 			int nota = notaDesempenho();
 			if (nota >= 70) {
-				candidato.setStatus("Classificado");
+				candidato.setStatus("Aprovado");
 				candidato.setNota(nota);
 				candidato.changeState(new TituloState(candidato));
-				return "     Candidato Classificado\n" + 
+				return "     Candidato Aprovado\n" + 
 						"     Candidato elegível para Prova de Título";
 			} else {
 				candidato.setProcess(false);
-				candidato.setStatus("Não Classificado");
+				candidato.setStatus("Eliminado");
 				candidato.changeState(new FinalizadoState(candidato));
-				return "     Candidato Não Classificado\n" + 
+				return "     Candidato Eliminado\n" + 
 						"     Nota Avaliação do Candidato Abaixo da Nota de Corte";	
 			}	
 		} else {
