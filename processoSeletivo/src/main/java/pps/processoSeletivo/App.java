@@ -61,9 +61,6 @@ public class App
     	/*Avaliação de cada Candidato nas fases do PSS*/
     	for (Candidato candidato: candidatos) {
     		andamentoCandidatura (candidato, resposta);
-    		//if (candidato.isProcess() == false){
-    		//	andamentoCandidatura (candidato, resposta);
-    		//}
     		finalizarCandidatura (candidato);
     	}
     	
@@ -72,34 +69,34 @@ public class App
     	//System.out.println(candidatos);
     	
     	/*Criar a Lista dos Candidatos Classificados*/
-    	ArrayList<Candidato> listaClassificado = new ArrayList<Candidato>();
-    	for (Candidato candi: candidatos) {
-    		if (candi.getStatus().equals("Classificado")){
-    			listaClassificado.add(candi);
+    	ArrayList<Candidato> listaAprovado = new ArrayList<Candidato>();
+    	for (Candidato candidato: candidatos) {
+    		if (candidato.getStatus().equals("Aprovado")){
+    			listaAprovado.add(candidato);
     		}
     	}
     	
-    	/*Teste da Lista dos Candidados Classificados*/
-    	//System.out.println(listaClassificado);
-    	//System.out.println();
-    	
     	/*Ordenar a Lista dos Candidatos Classificados em Decrescente pela Nota*/
-    	Collections.sort(listaClassificado, new Comparator<Candidato>() {
+    	Collections.sort(listaAprovado, new Comparator<Candidato>() {
     		public int compare(Candidato c1, Candidato c2) {
 				return c2.getNota() - c1.getNota();
 			}
     	});
     	
+    	/*Teste da Lista dos Candidados Classificados*/
+    	//System.out.println(listaClassificado);
+    	//System.out.println();
+    	
     	/*Prints da Lista dos Candidatos Aprovados e Classificados no PSS*/
     	System.out.println();
-    	System.out.println("*************************************************");
-    	System.out.println("    Lista do(s) Candidato(s) Classificado(s)");
-    	System.out.println("*************************************************");
-    	for (Candidato candidato: listaClassificado) {
-    		int index = listaClassificado.indexOf(candidato);
-    		if (candidato.getStatus().equals("Classificado")){
+    	System.out.println("*********************************************************");
+    	System.out.println("  Lista do(s) Candidato(s) Classificado(s) e Aprovado(s)");
+    	System.out.println("*********************************************************");
+    	for (Candidato candidato: listaAprovado) {
+    		int index = listaAprovado.indexOf(candidato);
+    		if (candidato.getStatus().equals("Aprovado")){
     			if (index <= (vagasDisponivel - 1)){
-    				candidato.setStatus("Aprovado");
+    				candidato.setStatus("Classificado");
     				System.out.println(candidato.toStringClassificado());
     			} else {
     				System.out.println(candidato.toStringClassificado());
@@ -131,7 +128,7 @@ public class App
     	System.out.println("     Lista do(s) Candidato(s) Eliminado(s)");
     	System.out.println("*************************************************");
     	for (Candidato candidato: candidatos) {
-    		if (candidato.getStatus().equals("Não Classificado")){
+    		if (candidato.getStatus().equals("Eliminado")){
     			System.out.println(candidato.toStringDesclassificado());
     		}
     	}
