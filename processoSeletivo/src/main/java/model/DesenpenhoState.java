@@ -15,12 +15,15 @@ public class DesenpenhoState extends State{
 			if (nota >= 70) {
 				candidato.setStatus("Aprovado");
 				candidato.setNota(nota);
+				System.out.println("     Nota Avaliação Desenpenho: " + candidato.getNota());
 				candidato.changeState(new TituloState(candidato));
 				return "     Candidato Aprovado\n" + 
 						"     Candidato elegível para Prova de Título";
 			} else {
 				candidato.setProcess(false);
 				candidato.setStatus("Eliminado");
+				candidato.setNota(nota);
+				System.out.println("     Nota Avaliação Desenpenho: " + candidato.getNota());
 				candidato.changeState(new FinalizadoState(candidato));
 				return "     Candidato Eliminado\n" + 
 						"     Nota Avaliação do Candidato Abaixo da Nota de Corte";	
