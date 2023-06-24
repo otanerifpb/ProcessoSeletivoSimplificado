@@ -113,7 +113,7 @@ public class Candidato {
 	/*Opção para chamar a lista dos Candidatos Desclassificados*/
 	public String toStringDesclassificado() {
 		//System.out.println("Resultado dos Candidatos Não Classificado");
-		return "Nome: " +nome+ " - Status: " +status;
+		return "Nome: " +nome+ " - Status: " +status+ " - Nota Desenpenho: " +nota;
 	}
 	
 }
