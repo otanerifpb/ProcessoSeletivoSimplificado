@@ -21,17 +21,17 @@ public class GestaoState extends State {
 			
 			int gestao = resposta;
 			if (gestao == 1) {
-				//candidato.setStatus("Classificado");
+				//candidato.setStatus("Aprovado");
 				candidato.setNota(candidato.getNota() + 15);
 				candidato.changeState(new FinalizadoState(candidato));
 				return "     Candidato elegível para o Processo Seletivo";	
 			} else if (gestao == 2){
-				//candidato.setStatus("Classificado");
+				//candidato.setStatus("Aprovado");
 				candidato.setNota(candidato.getNota() + 10);
 				candidato.changeState(new FinalizadoState(candidato));
 				return "     Candidato elegível para o Processo Seletivo"; 	
 			}else {
-				//candidato.setStatus("Não Classificado");
+				//candidato.setStatus("Eliminado");
 				//candidato.setNota(candidato.getNota() + 0);
 				candidato.changeState(new FinalizadoState(candidato));
 				return "     Candidato elegível para o Processo Seletivo";		
