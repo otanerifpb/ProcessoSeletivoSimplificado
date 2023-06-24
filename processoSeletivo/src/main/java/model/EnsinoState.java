@@ -22,22 +22,22 @@ public class EnsinoState extends State {
 			
 			int ensino = resposta;
 			if (ensino == 1) {
-				//candidato.setStatus("Classificado");
+				//candidato.setStatus("Aprovado");
 				candidato.setNota(candidato.getNota() + 12);
 				candidato.changeState(new GestaoState(candidato));
 				return "     Candidato elegível para Prova de Gestão"; 	
 			} else if (ensino == 2){
-				//candidato.setStatus("Classificado");
+				//candidato.setStatus("Aprovado");
 				candidato.setNota(candidato.getNota() + 7);
 				candidato.changeState(new GestaoState(candidato));
 				return "     Candidato elegível para Prova de Gestão"; 	
 			}else if (ensino == 3){
-				//candidato.setStatus("Classificado");
+				//candidato.setStatus("Aprovado");
 				candidato.setNota(candidato.getNota() + 6);
 				candidato.changeState(new GestaoState(candidato));
 				return "     Candidato elegível para Prova de Gestão";
 			}else {
-				//candidato.setStatus("Não Classificado");
+				//candidato.setStatus("Eliminado");
 				//candidato.setNota(candidato.getNota() + 0);
 				candidato.changeState(new GestaoState(candidato));
 				return "     Candidato elegível para Prova de Gestão";			
